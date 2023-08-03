@@ -1,36 +1,36 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
-  const [text, setText] = useState("")
-	useEffect(()=> {
+	const [text, setText] = useState("")
+	useEffect(() => {
 		fetch('/api').then(res => res.text()).then(setText)
 	})
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-				<span>{text}</span>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<div>
+			<div className="navbar bg-base-100">
+				<div className="flex-1">
+					<a className="btn btn-ghost normal-case text-xl">Flight High</a>
+				</div>
+				<div className="flex-none">
+					<ul className="menu menu-horizontal px-1">
+						<li><a>Link</a></li>
+						<li>
+							<details>
+								<summary>
+									{text}
+								</summary>
+								<ul className="p-2 bg-base-100">
+									<li><a>Link 1</a></li>
+									<li><a>Link 2</a></li>
+								</ul>
+							</details>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	)
 }
 
 export default App
